@@ -1,0 +1,127 @@
+192.168.56.101
+
+sanya@sanya
+password: 1
+пароль для рута: 1
+
+ifconfig
+ifconfig enp0s8 192.168.56.101
+
+в /etc/ssh/sshd_config вставляем в конце:
+# other configs
+ClientAliveInterval 600
+TCPKeepAlive yes
+ClientAliveCountMax 10
+
+
+для powershel:
+ssh root@192.168.56.101
+cd ..
+ls
+sudo service ssh restart
+exit
+
+для сани:
+ssh sanya@192.168.56.101
+ls -al
+cd ..
+cd ..
+ls
+exit
+
+В идее по ролику:
+ssh sanya@192.168.56.101
+ssh-keygen.exe
+cat ~/.ssh/id_rsa.pub
+scp ~/.ssh/id_rsa.pub sanya@192.168.56.101:/home/sanya/
+mkdir .ssh
+cd .ssh/
+mv ~/id_rsa.pub ./authorized_keys
+
+sudo apt-get install -y nginx postgresql default-jdk
+java -version
+sudo -u postgres psql
+alter user postgres with password '1';
+create database sweater;
+\q
+
+sudo nano /etc/nginx/sites-enabled/default
+
+location / {
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_pass http://localhost:8080;
+}
+
+location /img/ {
+        alias /home/sanya/uploads/;
+}
+Ctrl + X 
+
+nginx -t
+sudo nginx -s reload
+mkdir uploads
+
+./scripts/deploy.sh
+__________________________________
+systemctl status nginx
+ssh sanya@192.168.56.101
+sudo nano /etc/nginx/nginx.conf
+sudo lsof -i:80
+sudo fuser -k 80/tcp
+sudo nginx -t -c /etc/nginx/nginx.conf
+systemctl status nginx.service
+
+sudo rm /etc/nginx/sites-enabled/default
+
+
+grep -R default_server /etc/nginx
+
+=
+sudo rm /etc/nginx/sites-enabled/default.save
+sudo nano /etc/nginx/sites-available/default
+
+sudo nano /etc/nginx/sites-enabled/default (хороший)
+=
+
+
+cd /etc/nginx
+ls -l
+
+ls /run/php/php7.0-fpm.sock
+systemctl restart nginx
+
+sudo systemctl status nginx
+sudo tail -f /var/log/nginx/error.log
+
+sudo cat /etc/nginx/sites-enabled/default
+/////////////////////////////////////////////////////////////////////
+
+
+  proxy_pass        http://localhost:8080;
+  proxy_set_header  X-Real-IP $remote_addr;
+  proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;
+  proxy_set_header  Host $http_host;
+
+systemctl restart nginx
+sudo service nginx status
+
+service sweater-1.0-SNAPSHOT.jar start (не работает)
+java -jar sweater-1.0-SNAPSHOT.jar      << старт jar-ника !
+
+-----------------------------------------------
+
+sudo -i -u postgres
+psql
+
+java -jar file.jar  
+
+ssh sanya@192.168.56.101
+java -jar sweater-1.0-SNAPSHOT.jar
+
+./startup.sh
+---------------------------
+
+dir
+java -jar calc-1.0.jar
+

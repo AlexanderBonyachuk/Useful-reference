@@ -1,0 +1,53 @@
+File - Clone repositoriy - Clone - Show in Explorer (копировать файлы в открывшуюся папку)
+- Commit in master - Public Branch
+ 
+https://www.youtube.com/watch?v=QDwAE4QTSqI&t=1s&ab_channel=%D0%9A%D0%B0%D0%BD%D0%B0%D0%BB%D0%93%D1%80%D0%B0%D0%BD%D1%82%D0%B0
+
+
+Записать jar-ник:
+File - Project Stricture - + - Add - Artifacts - From Moduls with... - Main class (auto) - Apply - Ok 
+- Build - Build Artifacts - Build
+1.6.0_22
+
+
+ls
+cd
+git status
+git init
+git remote add origin [gitLink]
+git remote -v
+git add .
+git commit -m "First commit"
+git push origin master
+git branch
+git branch feature1
+git checkout feature1
+
+wq - выход из git log
+
+
+
+ls - список всех файлов в текущем каталоге
+
+Если ваш исходный код находится в другом каталоге, вам нужно изменить каталог в git bash с помощью команды cd, за которой следует каталог или
+ путь.
+
+cd - Чтобы сменить каталог
+
+git init - эта команда инициализирует git по заданному пути. Вы можете увидеть скрытые файлы .git после выполнения этой команды.
+
+git remote add origin [gitLink] - gitLink обозначает место, где ваш код хранится в удаленном репозитории
+
+git add. - Добавить все файлы из локального каталога в удаленный репозиторий
+
+git commit -m "Первая фиксация" - устанавливает соединение с локальным репозиторием.
+
+git push origin master - устанавливает соединение с удаленным репозиторием и загружает исходный код или файлы на GitHub
+
+git branch - смотрим доиступные ветки
+
+git checkout feature1 - переключаемся на ветку с названием feature1
+
+Примечание. Если вы получили фатальный результат: удаленный источник уже существует, что означает, что соединение уже установлено.
+
+https://www.youtube.com/watch?v=2vASHVT0qKc&ab_channel=Amarindaz
